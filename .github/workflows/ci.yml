@@ -28,7 +28,7 @@ on:
         required: false
         type: boolean
         default: true
-      test_branches:
+      flink_branches:
         description: "Which branches need to run the scheduled weekly test"
         required: false
         type: string
@@ -49,6 +49,9 @@ jobs:
       MVN_VALIDATION_DIR: "/tmp/flink-validation-deployment"
     steps:
       - run: echo "Running CI pipeline for JDK version ${{ matrix.jdk }}"
+
+      - name: "Check variables"
+        run: echo "${{ inputs.flink_branches }}"
 
       - name: Check out repository code
         uses: actions/checkout@v3
