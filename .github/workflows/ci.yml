@@ -55,6 +55,8 @@ jobs:
 
       - name: Check out repository code
         uses: actions/checkout@v3
+        with:
+          ref: "${{ inputs.flink_branches }}"
 
       - name: Set JDK
         uses: actions/setup-java@v3
